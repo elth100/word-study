@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+  <title>단어 스캔 학습</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="단어학습" />
+  <meta name="theme-color" content="#2f6fed" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="icon-180.png" />
+  <link rel="stylesheet" href="style.css" />
+  <!-- OCR 엔진 (영어+한글 문자 인식) -->
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js"></script>
+</head>
+<body>
+  <header class="topbar" id="topbar"></header>
+  <main id="app"></main>
+
+  <!-- 숨겨진 파일 입력 (사진 촬영/불러오기, 백업 복원) -->
+  <input type="file" id="fileImage" accept="image/*" hidden />
+  <input type="file" id="fileBackup" accept="application/json,.json" hidden />
+
+  <!-- 모달 영역 -->
+  <div class="modal-back" id="modal" hidden>
+    <div class="modal" id="modalBody"></div>
+  </div>
+
+  <!-- 진행 표시 -->
+  <div class="busy" id="busy" hidden>
+    <div class="busy-box">
+      <div class="busy-title" id="busyTitle">처리 중…</div>
+      <div class="bar"><div class="bar-fill" id="busyBar"></div></div>
+      <div class="busy-sub" id="busySub"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" hidden></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
